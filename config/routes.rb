@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get :subjects
   end
 
+  resources :teachers
+
   get :visitors, action: :index, controller: :visitors
   get :subjects, action: :subjects, controller: :reports
 
