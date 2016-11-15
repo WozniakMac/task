@@ -3,5 +3,7 @@ Rails.application.routes.draw do
     get :subjects
   end
 
+  get :visitors, action: :index, controller: :visitors
+
   devise_for :users
 end
