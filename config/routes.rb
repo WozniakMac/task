@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   get :visitors, action: :index, controller: :visitors
+  get :subjects, action: :subjects, controller: :reports
 
   devise_for :users
 end
