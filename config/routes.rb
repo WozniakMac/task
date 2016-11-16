@@ -3,10 +3,11 @@ Rails.application.routes.draw do
     get :subjects
   end
 
-  resources :teachers
-
+  get 'report/subjects', action: :subjects, controller: :reports
   get :visitors, action: :index, controller: :visitors
-  get :subjects, action: :subjects, controller: :reports
 
+  resources :teachers
   devise_for :users
+  
+  root action: :index, controller: :visitors
 end
