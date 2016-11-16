@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'report/subjects', action: :subjects, controller: :reports
   get :visitors, action: :index, controller: :visitors
 
-  resources :teachers
+  resources :teachers do
+    get :subjects
+  end
   devise_for :users
   
   root action: :index, controller: :visitors
