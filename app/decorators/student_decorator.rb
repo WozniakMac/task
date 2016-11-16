@@ -7,4 +7,8 @@ class StudentDecorator < BaseDecorator
     avarge_notes = subject_item.subject_item_notes.average(:value) || 0
     h.number_with_precision(avarge_notes, precision: 2)
   end
+
+  def formatted_birthdate
+    birthdate.present? ? birthdate.strftime('%Y-%m_%d') : ''
+  end
 end

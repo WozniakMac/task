@@ -8,11 +8,24 @@ feature 'User creates student' do
     click_on 'Add new one'
   end
 
-  scenario 'with valid input' do
-    fill_in 'First name', with: 'Adrian'
-    fill_in 'Last name', with: 'Nowacki'
-    click_button 'Create Student'
-    expect(page).to have_content 'Student has been created!'
+  context 'with valid input' do
+    scenario 'without birthdate filled' do
+      fill_in 'First name', with: 'Adrian'
+      fill_in 'Last name', with: 'Nowacki'
+      click_button 'Create Student'
+      expect(page).to have_content 'Student has been created!'
+    end
+
+    scenario 'with birthdate filled' do
+      fill_in 'First name', with: 'Adrian'
+      fill_in 'Last name', with: 'Nowacki'
+      select '1992', :from => 'student_birthdate_1i'
+      select 'July', :from => 'student_birthdate_2i'
+      select '2', :from => 'student_birthdate_3i'
+      click_button 'Create Student'
+      expect(page).to have_content 'Student has been created!'
+      expect(page).to have_content '1992-07_02'
+    end
   end
 
   scenario 'with missing first name' do
