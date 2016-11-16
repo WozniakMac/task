@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     get :subjects
   end
   devise_for :users
-  
+
   root action: :index, controller: :visitors
 end
