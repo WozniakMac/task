@@ -1,0 +1,15 @@
+- breadcrumb :payment, payment
+
+%p
+  %b Student:
+  = payment.student.decorate.full_name
+%p
+  %b Payment date:
+  = payment.payment_date
+%p
+  %b Paid:
+  = payment.paid
+
+= link_to 'Edit', edit_payment_path(payment)
+\|
+= link_to 'Back', payments_path

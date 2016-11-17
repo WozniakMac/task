@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :payments, except: :new
+  get '/payments/new/:student_id', action: :new, controller: :payments, as: :new_payment
   resources :students do
     get :subjects
   end

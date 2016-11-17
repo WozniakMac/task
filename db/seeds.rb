@@ -31,6 +31,14 @@ SubjectItem.all.each do |subject_item|
   subject_item.students << students.sample(rand(1..4))
 end
 
+students.each do |student|
+  Payment.create!(
+    student: student,
+    payment_date: Faker::Date.between(10.days.ago, 1.day.ago),
+    paid: true
+  )
+end
+
 SubjectItem.all.each do |subject_item|
   subject_item.students.each do |student|
     rand(1..5).times do
